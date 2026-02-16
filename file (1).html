@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community Action | Cleaner Areas, Stronger Citizens</title>
+  <meta name="description" content="Local area improvement, civic education, pollution awareness, and support for those in need—led by a community activist." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #F8FAFC;
+      --card: #FFFFFF;
+      --text: #0F172A;
+      --muted: #475569;
+      --line: #E2E8F0;
+
+      --green: #116A4D;
+      --green2:#0B533C;
+      --orange:#F59E0B;
+
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+      --radius: 16px;
+      --radius2: 22px;
+
+      --max: 1120px;
+    }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+    a{ color: inherit; }
+    .container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    /* Header */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 250, 252, 0.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 14px;
+    }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .logo{
+      width: 38px; height: 38px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--green), var(--orange));
+      box-shadow: var(--shadow);
+    }
+    nav ul{
+      list-style: none; padding: 0; margin: 0;
+      display: none;
+      gap: 18px;
+    }
+    nav a{
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    nav a:hover{ color: var(--text); }
+
+    .actions{ display: flex; gap: 10px; align-items: center; }
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn.primary{
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+    .btn.primary:hover{ background: var(--green2); border-color: var(--green2); }
+    .btn.ghost{
+      background: transparent;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 48px 0 24px;
+    }
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .hero-card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-media{
+      min-height: 240px;
+      background:
+        linear-gradient(120deg, rgba(17,106,77,0.75), rgba(245,158,11,0.55)),
+        url("https://images.unsplash.com/photo-1520975958225-39f03c7b7b8f?auto=format&fit=crop&w=1600&q=70");
+      background-size: cover;
+      background-position: center;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+    }
+    .kicker{
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      opacity: 0.95;
+    }
+    h1{
+      font-family: Poppins, Inter, sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      margin: 10px 0 12px;
+    }
+    .lead{ margin: 0; max-width: 56ch; font-size: 16px; opacity: 0.96; }
+    .hero-body{
+      padding: 18px 20px 22px;
+      display: grid;
+      gap: 12px;
+    }
+    .quick-actions{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .mini{
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .mini strong{ display:block; }
+    .mini span{ color: var(--muted); font-size: 13px; }
+
+    /* Stats */
+    .stats{
+      padding: 18px 0 34px;
+    }
+    .stats-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .stat{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .stat .num{
+      font-family: Poppins, Inter, sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .stat .label{ color: var(--muted); font-weight: 600; font-size: 13px; }
+
+    /* Section styles */
+    section{ padding: 42px 0; }
+    .section-head{
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    h2{
+      font-family: Poppins, Inter, sans-serif;
+      margin: 0;
+      font-size: 26px;
+    }
+    .sub{ margin: 0; color: var(--muted); max-width: 70ch; }
+
+    /* Initiative cards */
+    .grid-4{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 6px 18px rgba(2, 6, 23, 0.05);
+    }
+    .badge{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-weight: 800;
+      font-size: 12px;
+    }
+    .card h3{ margin: 10px 0 6px; font-size: 18px; }
+    .card p{ margin: 0 0 12px; color: var(--muted); }
+    .card .links{ display:flex; gap: 10px; flex-wrap: wrap; }
+
+    /* Featured project */
+    .feature{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .feature .media{
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      min-height: 260px;
+      background:
+        linear-gradient(120deg, rgba(15,23,42,0.2), rgba(15,23,42,0.55)),
+        url("https://images.unsplash.com/photo-1523958203904-cdcb402031fd?auto=format&fit=crop&w=1600&q=70");
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+    .feature .content{
+      border-radius: var(--radius2);
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+    }
+    .bullets{ margin: 0; padding-left: 18px; color: var(--muted); }
+    .pill-row{ display:flex; gap: 8px; flex-wrap: wrap; }
+    .pill{
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--green2);
+      background: rgba(17,106,77,0.10);
+      border: 1px solid rgba(17,106,77,0.18);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    /* Resources */
+    .resource-list{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    details{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    summary{
+      cursor: pointer;
+      font-weight: 800;
+    }
+    details p{ color: var(--muted); margin: 10px 0 0; }
+
+    /* Support & forms */
+    .two-col{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    form{
+      display: grid;
+      gap: 10px;
+    }
+    label{ font-weight: 700; font-size: 13px; }
+    input, select, textarea{
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font: inherit;
+      background: #fff;
+    }
+    textarea{ min-height: 110px; resize: vertical; }
+    .hint{ margin: 0; color: var(--muted); font-size: 13px; }
+
+    /* Footer */
+    footer{
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+    }
+    .footer-grid{
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    /* Responsive */
+    @media (min-width: 860px){
+      nav ul{ display: flex; }
+      .hero-grid{ grid-template-columns: 1.3fr 0.7fr; }
+      .quick-actions{ grid-template-columns: 1fr; }
+      .stats-grid{ grid-template-columns: repeat(4, 1fr); }
+      .grid-4{ grid-template-columns: repeat(4, 1fr); }
+      .feature{ grid-template-columns: 1fr 1fr; }
+      .resource-list{ grid-template-columns: 1fr 1fr; }
+      .two-col{ grid-template-columns: 1.1fr 0.9fr; }
+      .footer-grid{ grid-template-columns: 1.2fr 0.8fr; align-items: center; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container nav" role="navigation" aria-label="Primary navigation">
+    <a class="brand" href="#top">
+      <div class="logo" aria-hidden="true"></div>
+      <span>Community Action</span>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#involved">Get Involved</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <a class="btn ghost" href="#support">Donate</a>
+      <a class="btn primary" href="#involved">Volunteer</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <div class="hero-media">
+          <div class="kicker">Clean streets • Informed citizens • Healthier air • Stronger communities</div>
+          <h1>Turning civic responsibility into visible change.</h1>
+          <p class="lead">
+            We lead local cleanups, teach civic participation, run pollution awareness campaigns,
+            and support families in need—through practical, transparent community action.
+          </p>
+        </div>
+        <div class="hero-body">
+          <div class="pill-row" aria-label="Highlights">
+            <span class="pill">Weekly cleanups</span>
+            <span class="pill">Civic workshops</span>
+            <span class="pill">Anti-pollution drives</span>
+            <span class="pill">Direct relief support</span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#involved">Join this weekend’s cleanup</a>
+            <a class="btn" href="#learn">Get civic resources</a>
+            <a class="btn" href="#contact">Report an issue</a>
+          </div>
+          <p class="hint">Tip: Use “Report an issue” to share garbage hotspots, broken streetlights, or unsafe drains.</p>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Quick actions">
+        <div class="hero-body">
+          <h2 style="margin:0; font-size:20px;">Quick actions</h2>
+
+          <div class="quick-actions">
+            <div class="mini">
+              <div>
+                <strong>Volunteer</strong>
+                <span>Cleanups, teaching, logistics</span>
+              </div>
+              <a class="btn primary" href="#involved">Sign up</a>
+            </div>
+
+            <div class="mini">
+              <div>
+                <strong>Donate</strong>
+                <span>Relief kits & community projects</span>
+              </div>
+              <a class="btn" href="#support">Contribute</a>
+            </div>
+
+            <div class="mini">
+              <div>
+                <strong>Attend a workshop</strong>
+                <span>Civic rights, complaints, RTI basics</span>
+              </div>
+              <a class="btn" href="#learn">Explore</a>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:8px;">
+            <span class="badge">Next Event</span>
+            <h3 style="margin:10px 0 6px;">Neighborhood Cleanup Drive</h3>
+            <p style="margin:0 0 10px; color:var(--muted);">Sunday • 7:00 AM • Central Park Gate</p>
+            <a class="btn primary" href="#involved">Reserve a spot</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Impact statistics">
+    <div class="container stats-grid">
+      <div class="stat"><div class="num">12</div><div class="label">neighborhoods improved</div></div>
+      <div class="stat"><div class="num">3,400 kg</div><div class="label">waste collected</div></div>
+      <div class="stat"><div class="num">1,200</div><div class="label">citizens trained</div></div>
+      <div class="stat"><div class="num">₹4.8L</div><div class="label">relief delivered</div></div>
+    </div>
+  </section>
+
+  <!-- WORK / INITIATIVES -->
+  <section id="work">
+    <div class="container">
+      <div class="section-head">
+        <h2>Work & Initiatives</h2>
+        <p class="sub">Four pillars guide everything: cleaner public spaces, better civic participation, pollution solutions, and direct support for those who need it most.</p>
+      </div>
+
+      <div class="grid-4">
+        <article class="card">
+          <span class="badge">Local Area Improvement</span>
+          <h3>Clean, green, and safe public spaces</h3>
+          <p>Cleanup drives, wall painting, tree planting, drain safety checks, and follow-ups with authorities to sustain results.</p>
+          <div class="links">
+            <a class="btn primary" href="#projects">View projects</a>
+            <a class="btn" href="#contact">Report a hotspot</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="badge">Civic Engagement Education</span>
+          <h3>Teach civic rights and responsibilities</h3>
+          <p>Workshops and simple guides on filing complaints, attending ward meetings, voting awareness, and community problem-solving.</p>
+          <div class="links">
+            <a class="btn primary" href="#learn">Access resources</a>
+            <a class="btn" href="#involved">Host a session</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="badge">Pollution Awareness</span>
+          <h3>Awareness that leads to action</h3>
+          <p>Campaigns on plastic reduction, air quality, water pollution reporting, and neighborhood-level solutions people can adopt.</p>
+          <div class="links">
+            <a class="btn primary" href="#projects">Join a campaign</a>
+            <a class="btn" href="#learn">Learn solutions</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="badge">Support for the Needy</span>
+          <h3>Direct relief with transparency</h3>
+          <p>Ration kits, school supplies, medical assistance referrals, and emergency support—prioritizing dignity and accountability.</p>
+          <div class="links">
+            <a class="btn primary" href="#support">Donate</a>
+            <a class="btn" href="#contact">Refer someone</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECT -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2>Featured Project</h2>
+        <p class="sub">A clear story builds trust: what we did, what changed, and what’s next.</p>
+      </div>
+
+      <div class="feature">
+        <div class="media" role="img" aria-label="Community cleanup and beautification photo"></div>
+
+        <div class="content">
+          <span class="badge">Project Spotlight</span>
+          <h3 style="margin:0;">“Clean Lane” — Waste-to-Beauty Transformation</h3>
+          <p style="margin:0; color:var(--muted);">
+            A 3-week neighborhood effort combining cleanup, segregation awareness, and beautification through murals and plants.
+          </p>
+
+          <ul class="bullets">
+            <li>Installed segregation signboards and coordinated weekly pickup reminders</li>
+            <li>Cleared illegal dumping points and created a monitored “no-dump” zone</li>
+            <li>Ran a door-to-door civic complaint support drive</li>
+          </ul>
+
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#support">Sponsor the next lane</a>
+            <a class="btn" href="#involved">Volunteer with the team</a>
+          </div>
+
+          <p class="hint">Next goal: expand to 5 lanes with weekly monitoring and school-led awareness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARN / CIVIC EDUCATION -->
+  <section id="learn">
+    <div class="container">
+      <div class="section-head">
+        <h2>Civic Engagement Education Hub</h2>
+        <p class="sub">Simple, practical resources to help citizens participate—without jargon.</p>
+      </div>
+
+      <div class="resource-list" role="list">
+        <details>
+          <summary>How to file a civic complaint (step-by-step)</summary>
+          <p>Identify the right department, write a clear description, attach photos, note location details, and follow up with a reference number.</p>
+        </details>
+
+        <details>
+          <summary>Ward meeting checklist: what to ask and how to follow up</summary>
+          <p>Prepare 2–3 issues, bring evidence, ask for timelines, record commitments, and share outcomes with residents.</p>
+        </details>
+
+        <details>
+          <summary>RTI basics (beginner-friendly)</summary>
+          <p>Use RTI to request official information like tender details, project timelines, and spending records—legally and respectfully.</p>
+        </details>
+
+        <details>
+          <summary>Voter participation: “Before you vote” guide</summary>
+          <p>Verify your registration, understand local issues, compare promises with evidence, and encourage informed participation.</p>
+        </details>
+      </div>
+
+      <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn primary" href="#involved">Request a workshop</a>
+        <a class="btn" href="#contact">Ask a civic question</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLLUTION AWARENESS -->
+  <section aria-label="Pollution awareness and solutions">
+    <div class="container">
+      <div class="section-head">
+        <h2>Pollution Awareness → Practical Solutions</h2>
+        <p class="sub">We focus on what people can do today—and what we can demand collectively from systems tomorrow.</p>
+      </div>
+
+      <div class="grid-4">
+        <article class="card">
+          <span class="badge">Air</span>
+          <h3>Cleaner air in our streets</h3>
+          <p>Anti-idling awareness, green buffers, and community reporting of major dust sources and burning.</p>
+          <a class="btn primary" href="#involved">Join air campaign</a>
+        </article>
+
+        <article class="card">
+          <span class="badge">Water</span>
+          <h3>Protect local water bodies</h3>
+          <p>Awareness drives near drains, reporting illegal discharge, and citizen audits of cleanup promises.</p>
+          <a class="btn primary" href="#contact">Report water pollution</a>
+        </article>
+
+        <article class="card">
+          <span class="badge">Plastic</span>
+          <h3>Reduce plastic at the source</h3>
+          <p>Segregation workshops, reusable alternatives, and vendor partnerships for low-waste distribution.</p>
+          <a class="btn primary" href="#learn">Take low-waste challenge</a>
+        </article>
+
+        <article class="card">
+          <span class="badge">Community</span>
+          <h3>Make it a shared habit</h3>
+          <p>Neighborhood commitments, school clubs, and “one street at a time” accountability systems.</p>
+          <a class="btn primary" href="#involved">Start in your area</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT -->
+  <section id="support">
+    <div class="container">
+      <div class="section-head">
+        <h2>Support the Mission</h2>
+        <p class="sub">Your support funds local improvement, educational materials, anti-pollution campaigns, and direct relief—tracked with regular updates.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3 style="margin-top:0;">Where contributions go</h3>
+          <ul class="bullets">
+            <li>Community cleanup supplies (gloves, bags, masks, tools)</li>
+            <li>Educational material printing + workshop logistics</li>
+            <li>Relief kits: ration, hygiene, school essentials</li>
+            <li>Emergency support with verification and receipts</li>
+          </ul>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+            <a class="btn primary" href="#contact">Donate (get details)</a>
+            <a class="btn" href="#contact">Sponsor a kit</a>
+          </div>
+          <p class="hint">Add donation links later (UPI/Stripe/PayPal). Keep a public monthly update post for transparency.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Donation / Sponsorship request</h3>
+          <form aria-label="Donation inquiry form">
+            <div>
+              <label for="dname">Name</label>
+              <input id="dname" name="dname" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="dcontact">Email or phone</label>
+              <input id="dcontact" name="dcontact" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="dtype">I want to support</label>
+              <select id="dtype" name="dtype">
+                <option>Clean-up & beautification</option>
+                <option>Civic education workshops</option>
+                <option>Pollution awareness campaigns</option>
+                <option>Relief kits / needy support</option>
+              </select>
+            </div>
+            <div>
+              <label for="dmsg">Message</label>
+              <textarea id="dmsg" name="dmsg" placeholder="Tell us what you'd like to sponsor and your preferred timeline."></textarea>
+            </div>
+            <button class="btn primary" type="submit">Send request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section id="involved">
+    <div class="container">
+      <div class="section-head">
+        <h2>Get Involved</h2>
+        <p class="sub">Whether you can give one hour or lead a full project, there’s a role for you.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3 style="margin-top:0;">Volunteer roles</h3>
+          <ul class="bullets">
+            <li>Cleanup captain (on-ground coordination)</li>
+            <li>Education volunteer (civic sessions, school clubs)</li>
+            <li>Campaign support (posters, outreach, vendor partnerships)</li>
+            <li>Relief distribution + verification support</li>
+          </ul>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" href="#contact">Join next event</a>
+            <a class="btn" href="#contact">Bring your organization</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Volunteer signup</h3>
+          <form aria-label="Volunteer signup form">
+            <div>
+              <label for="vname">Name</label>
+              <input id="vname" name="vname" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="vcontact">Email or phone</label>
+              <input id="vcontact" name="vcontact" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="varea">Area / locality</label>
+              <input id="varea" name="varea" placeholder="e.g., Sector 7, Downtown" />
+            </div>
+            <div>
+              <label for="vrole">Interest</label>
+              <select id="vrole" name="vrole">
+                <option>Cleanups</option>
+                <option>Civic education</option>
+                <option>Pollution campaigns</option>
+                <option>Support for the needy</option>
+              </select>
+            </div>
+            <button class="btn primary" type="submit">Sign up to volunteer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="sub">Report issues, request help, propose a partnership, or invite a workshop.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3 style="margin-top:0;">Send a message</h3>
+          <form aria-label="Contact form">
+            <div>
+              <label for="cname">Name</label>
+              <input id="cname" name="cname" autocomplete="name" required />
+            </div>
+            <div>
+              <label for="cemail">Email</label>
+              <input id="cemail" name="cemail" autocomplete="email" required />
+            </div>
+            <div>
+              <label for="ctype">Topic</label>
+              <select id="ctype" name="ctype">
+                <option>Report a local issue</option>
+                <option>Volunteer / event</option>
+                <option>Donate / sponsor</option>
+                <option>Request civic education workshop</option>
+                <option>Support request / referral</option>
+              </select>
+            </div>
+            <div>
+              <label for="cmsg">Message</label>
+              <textarea id="cmsg" name="cmsg" placeholder="Add location details if reporting an issue."></textarea>
+            </div>
+            <button class="btn primary" type="submit">Send</button>
+          </form>
+          <p class="hint">For real deployment, connect forms to Formspree/Netlify Forms/your backend.</p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Community commitment</h3>
+          <p style="
